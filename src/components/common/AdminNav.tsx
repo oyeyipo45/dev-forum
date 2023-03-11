@@ -1,5 +1,6 @@
 import { NextPage } from 'next';
 import Link from 'next/link';
+import { useEffect } from 'react';
 import { IconType } from 'react-icons';
 import { RiMenuFoldFill } from 'react-icons/ri';
 import Logo from '../images/Logo';
@@ -9,6 +10,8 @@ interface Props {
 }
 
 const AdminNav: NextPage<Props> = ({ navItems }): JSX.Element => {
+
+
   return (
     <nav className='h-screen w-60 shadow-sm bg-secondary-light dark:bg-secondary-dark'>
       <Link href='/admin' className='flex items-center space-x-2 p-3'>
