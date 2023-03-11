@@ -1,6 +1,5 @@
 import AdminNav from '@/components/common/AdminNav';
 import { NextPage } from 'next';
-import Link from 'next/link';
 import { FC } from 'react';
 import { AiOutlineContacts, AiOutlineContainer, AiOutlineDashboard, AiOutlineMail, AiOutlineTeam } from 'react-icons/ai';
 
@@ -34,14 +33,12 @@ const navItems = [
   },
 ];
 
-const Admin: NextPage<Props> = (): JSX.Element => {
+const Posts: NextPage<Props> = (): JSX.Element => {
   return (
     <div>
       <AdminNav navItems={navItems} />
-      
-      <Link href='/admin/posts'>damilola</Link>
     </div>
   );
 };
 
-export default Admin;
+export default Posts;
