@@ -49,11 +49,11 @@ const AdminNav: NextPage<Props> = ({ navItems }): JSX.Element => {
   }, []);
 
   return (
-    <nav ref={navRef} className='h-screen w-60 shadow-sm bg-secondary-light dark:bg-secondary-dark flex flex-col justify-between'>
+    <nav ref={navRef} className='h-screen w-60 shadow-sm bg-secondary-light dark:bg-secondary-dark flex flex-col justify-between transition-width overflow-hidden'>
       <div>
         <Link href='/admin' className='flex items-center space-x-2 p-3'>
           <Logo className='fill-highlight-light dark:fill-highlight-dark   w-5 h-5' />
-          {visible && <span className='fill-highlight-light dark:fill-highlight-dark text-xl font-semibold'>Admin</span>}
+          {visible && <span className='fill-highlight-light dark:fill-highlight-dark text-xl font-semibold leading-none'>Admin</span>}
         </Link>
 
         <div className='space-y-4 mt-6'>
@@ -65,7 +65,7 @@ const AdminNav: NextPage<Props> = ({ navItems }): JSX.Element => {
                 className='flex items-center p-3 mb-1 hover:scale-[0.98] transition fill-highlight-light dark:fill-highlight-dark text-xl '
               >
                 <item.icon size={24} />
-                {visible && <span className='ml-4'>{item.label}</span>}
+                {visible && <span className='ml-4 leading-none'>{item.label}</span>}
               </Link>
             );
           })}
