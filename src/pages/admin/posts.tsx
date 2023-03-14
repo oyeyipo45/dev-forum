@@ -6,9 +6,9 @@ interface Props {}
 
 const Posts: NextPage<Props> = (): JSX.Element => {
   return (
-      <AdminLayout>
-          
-    </AdminLayout> 
+    <AdminLayout>
+      <div>this is posts</div>
+    </AdminLayout>
   );
 };
 

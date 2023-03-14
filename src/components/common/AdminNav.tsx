@@ -1,6 +1,5 @@
-import { NextPage } from 'next';
 import Link from 'next/link';
-import { useEffect, useRef, useState } from 'react';
+import { FC, useEffect, useRef, useState } from 'react';
 import { IconType } from 'react-icons';
 import { RiMenuFoldFill, RiMenuUnfoldFill } from 'react-icons/ri';
 import Logo from './Logo';
@@ -13,14 +12,16 @@ const NAV_OPEN_WIDTH = 'w-60';
 const NAV_CLOSE_WIDTH = 'w-12';
 const NAV_VISIBILITY = 'nav-visibility';
 
-const AdminNav: NextPage<Props> = ({ navItems }): JSX.Element => {
-  const [visible, setVisible] = useState(true);
+const AdminNav: FC<Props> = ({ navItems }): JSX.Element => {
   const navRef = useRef<HTMLElement>(null);
+  const [visible, setVisible] = useState(true);
 
   const toggleNav = (visibility: boolean) => {
     const currentNav = navRef.current;
     if (!currentNav) return;
+
     const { classList } = currentNav;
+
     if (visibility) {
       classList.remove(NAV_OPEN_WIDTH);
       classList.add(NAV_CLOSE_WIDTH);
@@ -49,7 +50,10 @@ const AdminNav: NextPage<Props> = ({ navItems }): JSX.Element => {
   }, []);
 
   return (
-    <nav ref={navRef} className='h-screen w-60 shadow-sm bg-secondary-light dark:bg-secondary-dark flex flex-col justify-between transition-width overflow-hidden'>
+    <nav
+      ref={navRef}
+      className='h-screen w-60 shadow-sm bg-secondary-light dark:bg-secondary-dark flex flex-col justify-between transition-width overflow-hidden sticky top-0'
+    >
       <div>
         <Link href='/admin' className='flex items-center space-x-2 p-3'>
           <Logo className='fill-highlight-light dark:fill-highlight-dark   w-5 h-5' />
