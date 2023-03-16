@@ -60,51 +60,48 @@ const ToolBar: FC<Props> = ({ editor }): JSX.Element | null => {
       <DropdownOptions options={options} head={<Head />} />
       <div className='h-4 w-[1px] bg-secondary-dark dark:bg-secondary-light mx-8 ' />
       <div className='flex items-center space-x-3'>
-        <Button>
+        <Button onClick={() => getFocusedEditor(editor).toggleBold().run()}>
           <BsTypeBold />{' '}
         </Button>
-        <Button>
+        <Button onClick={() => getFocusedEditor(editor).toggleItalic().run()}>
           <BsTypeItalic />{' '}
         </Button>
 
-        <Button>
-          <BsTypeStrikethrough />{' '}
+        <Button onClick={() => getFocusedEditor(editor).toggleUnderline().run()} >
+          <BsTypeUnderline />{' '}
         </Button>
 
-        <Button>
+        <Button onClick={() => getFocusedEditor(editor).toggleStrike().run()}>
+          <BsTypeStrikethrough />{' '}
+        </Button>
+      </div>
+      <div className='h-4 w-[1px] bg-secondary-dark dark:bg-secondary-light mx-8 ' />
+      <div className='flex items-center space-x-3'>
+        <Button onClick={() => getFocusedEditor(editor).toggleCode().run()}>
           <BsCode />{' '}
         </Button>
 
-        <Button>
-          <BsListOl />{' '}
-        </Button>
-
-        <Button>
-          <BsListUl />{' '}
-        </Button>
-
-        <Button>
-          <BsTypeUnderline />{' '}
-        </Button>
-      </div>
-      <div className='h-4 w-[1px] bg-secondary-dark dark:bg-secondary-light mx-8 ' />
-
-      <div className='flex items-center space-x-3'>
-        <Button>
+        <Button onClick={() => getFocusedEditor(editor).toggleBlockquote().run()}>
           <RiDoubleQuotesL />{' '}
         </Button>
 
-        <Button>
+        <Button onClick={() => getFocusedEditor(editor).toggleCodeBlock().run()}>
           <BsBraces />{' '}
         </Button>
 
-        <Button>
+        <Button onClick={() => getFocusedEditor(editor).toggleBlockquote().run()}>
           <BsLink45Deg />{' '}
         </Button>
+
+        <Button onClick={() => getFocusedEditor(editor).toggleOrderedList().run()}>
+          <BsListOl />{' '}
+        </Button>
+
+        <Button onClick={() => getFocusedEditor(editor).toggleBulletList().run()}>
+          <BsListUl />{' '}
+        </Button>
       </div>
-
       <div className='h-4 w-[1px] bg-secondary-dark dark:bg-secondary-light mx-8 ' />
-
       <div className='flex items-center space-x-3'>
         <Button>
           <BsYoutube />{' '}
@@ -114,8 +111,6 @@ const ToolBar: FC<Props> = ({ editor }): JSX.Element | null => {
           <BsImageFill />{' '}
         </Button>
       </div>
-
-      <BsTypeBold />{' '}
     </div>
   );
 };
