@@ -10,7 +10,7 @@ const DropdownOptions: FC<Props> = ({ head, options }): JSX.Element => {
 
   return (
       <button className='relative'
-          onClick={() => setShowOptions(!showOptions)}
+          onMouseDown={() => setShowOptions(!showOptions)}
           onBlur={() => setShowOptions(false)}>
           
       {head}
@@ -19,7 +19,7 @@ const DropdownOptions: FC<Props> = ({ head, options }): JSX.Element => {
           <ul className='p-3 space-y-3'>
             {options.map(({ label, onClick }, index) => {
               return (
-                <li key={label + index} onClick={onClick}>
+                <li key={label + index} onMouseDown={onClick}>
                   {label}
                 </li>
               );
