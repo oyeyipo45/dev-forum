@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { FC, MouseEventHandler, ReactNode, useCallback } from 'react';
 
 interface Props {
@@ -11,13 +12,13 @@ interface Props {
 const Button: FC<Props> = ({ children, active, disabled, onMouseDown, onClick }): JSX.Element => {
   const getActiveStyle = useCallback((): string => {
     if (active) return 'dark:bg-primary dark:text-primary-dark bg-primary-dark text-primary';
-    else return 'text-secondary-light bg-secondary-light';
+    else return 'text-secondary-light bg-secondary-dark';
   }, [active]);
 
-  const commonClasses = 'p-2 rounded text-lg hover:sale-110 transition';
+  const commonClasses = 'p-2 rounded text-lg hover:scale-110 transition ';
 
   return (
-    <button type='button' onMouseDown={onMouseDown} onClick={onClick} className={commonClasses + getActiveStyle()} disabled={disabled}>
+    <button type='button' onMouseDown={onMouseDown} onClick={onClick} className={classNames(commonClasses, getActiveStyle())} disabled={disabled}>
       {children}
     </button>
   );
